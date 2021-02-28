@@ -57,7 +57,8 @@ class RemindersViewController: UIViewController,UITableViewDelegate,UITableViewD
         if editingStyle == UITableViewCell.EditingStyle.delete {
             let task = reminderData[indexPath.row]
             TaskFunctions.init().deleteData(task: task)
-            reload()
+            reminderData.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
     }
     

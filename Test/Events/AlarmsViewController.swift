@@ -55,7 +55,8 @@ class AlarmsViewController: UIViewController,UITableViewDelegate,UITableViewData
         if editingStyle == UITableViewCell.EditingStyle.delete {
             let task = alarmData[indexPath.row]
             TaskFunctions.init().deleteData(task: task)
-            reload()
+            alarmData.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
     }
     

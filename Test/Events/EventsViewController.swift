@@ -52,7 +52,8 @@ class EventsViewController: UIViewController,UITableViewDelegate,UITableViewData
         if editingStyle == UITableViewCell.EditingStyle.delete {
             let task = eventData[indexPath.row]
             TaskFunctions.init().deleteData(task: task)
-            reload()
+            eventData.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
     }
     

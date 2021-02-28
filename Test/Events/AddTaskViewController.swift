@@ -33,7 +33,13 @@ class AddTaskViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func add(_ sender: Any) {
-        TaskFunctions.init().addData(label: label.text ?? "", startDate: time.date, endDate: Date(), taskStatus: true, taskType: category.rawValue)
+        if !label.hasText {
+            let alert = UIAlertController(title: "Opps!", message: "Add Label", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        TaskFunctions.init().addData(label: label.text ?? "", startDate: time.date, endDate: time.date, taskStatus: true, taskType: category.rawValue)
         self.dismiss(animated: true) {
             self.delegate?.reload()
         }

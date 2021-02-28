@@ -18,6 +18,7 @@ class TaskFunctions {
         task.taskStatus = taskStatus
         task.taskType = taskType
         PersistentStorage.shared.saveContext()
+        AlarmNotification.shared.addAlarm(label: label, taskType: taskType, time: startDate)
     }
 
 
