@@ -7,11 +7,12 @@
 
 import Foundation
 
-class Task {
+class Tasks {
     var label:String?
     var startDate:Date?
     var endDate:Date?
     var taskStatus:Bool?
+    var taskType:String?
 }
 
 

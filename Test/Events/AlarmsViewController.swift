@@ -7,13 +7,22 @@
 
 import UIKit
 
-class AlarmsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class AlarmsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,TaskDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    var alarmData:[Task] = TaskData.init().getData()
+    var alarmData:[Task] = Array<Task>()
     override func viewDidLoad() {
         super.viewDidLoad()
         uiSetup()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        reload()
+    }
+    
+    func reload(){
+        alarmData = TaskFunctions.init().fetchData(taskType: TaskType.alarm.rawValue)
+        tableView.reloadData()
     }
     
     func uiSetup(){
@@ -31,7 +40,7 @@ class AlarmsViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:AlarmTableViewCell = tableView.dequeueReusableCell(withIdentifier: "alarmCell", for: indexPath) as! AlarmTableViewCell
         let dateFormater = DateFormatter()
-        dateFormater.dateFormat = "MM/dd/yyyy, h:mm a"
+        dateFormater.dateFormat = "dd/MM/yyyy, h:mm a"
         let dateTime = dateFormater.string(from: alarmData[indexPath.row].startDate!).components(separatedBy: ", ")
         cell.date.text = dateTime[0]
         cell.time.text = dateTime[1]
@@ -44,15 +53,18 @@ class AlarmsViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            
+            let task = alarmData[indexPath.row]
+            TaskFunctions.init().deleteData(task: task)
+            reload()
         }
     }
     
     @IBAction func add(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc:AddTaskViewController = storyboard.instantiateViewController(withIdentifier: "AddTaskViewController") as! AddTaskViewController
-        vc.category = Category.reminder
+        vc.category = TaskType.alarm
         vc.action = ActionType.new
+        vc.delegate = self;
         self.present(vc, animated: true)
     }
 }

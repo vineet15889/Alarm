@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		08B1BE4D25EB2082006208AA /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1BE4C25EB2082006208AA /* AddTaskViewController.swift */; };
-		08B1BE5325EB38B6006208AA /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1BE5225EB38B6006208AA /* Task.swift */; };
-		08B1BE5925EB39F9006208AA /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1BE5825EB39F9006208AA /* Data.swift */; };
+		08B1BE5325EB38B6006208AA /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1BE5225EB38B6006208AA /* Tasks.swift */; };
 		08B1BE6125EB3E9F006208AA /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1BE6025EB3E9F006208AA /* ReminderTableViewCell.swift */; };
 		08B1BE6625EB464F006208AA /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1BE6525EB464F006208AA /* AlarmTableViewCell.swift */; };
 		08B1BE6B25EB478C006208AA /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1BE6A25EB478C006208AA /* EventTableViewCell.swift */; };
+		08B1BE7125EB597D006208AA /* Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08B1BE6F25EB597D006208AA /* Task.xcdatamodeld */; };
+		08B1BEB825EB5DB9006208AA /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1BEB725EB5DB9006208AA /* PersistentStorage.swift */; };
+		08B1BEC025EB668E006208AA /* TaskFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1BEBF25EB668E006208AA /* TaskFunctions.swift */; };
 		08CDEC7C25EA540000616C7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CDEC7B25EA540000616C7F /* AppDelegate.swift */; };
 		08CDEC7E25EA540000616C7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CDEC7D25EA540000616C7F /* SceneDelegate.swift */; };
 		08CDEC8325EA540000616C7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08CDEC8125EA540000616C7F /* Main.storyboard */; };
@@ -44,11 +46,13 @@
 
 /* Begin PBXFileReference section */
 		08B1BE4C25EB2082006208AA /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
-		08B1BE5225EB38B6006208AA /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		08B1BE5825EB39F9006208AA /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		08B1BE5225EB38B6006208AA /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
 		08B1BE6025EB3E9F006208AA /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
 		08B1BE6525EB464F006208AA /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		08B1BE6A25EB478C006208AA /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		08B1BE7025EB597D006208AA /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
+		08B1BEB725EB5DB9006208AA /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
+		08B1BEBF25EB668E006208AA /* TaskFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFunctions.swift; sourceTree = "<group>"; };
 		08CDEC7825EA540000616C7F /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08CDEC7B25EA540000616C7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08CDEC7D25EA540000616C7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +100,8 @@
 		08B1BE5125EB3751006208AA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				08B1BE5225EB38B6006208AA /* Task.swift */,
+				08B1BE5225EB38B6006208AA /* Tasks.swift */,
+				08B1BE6F25EB597D006208AA /* Task.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -104,7 +109,8 @@
 		08B1BE5725EB3995006208AA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				08B1BE5825EB39F9006208AA /* Data.swift */,
+				08B1BEB725EB5DB9006208AA /* PersistentStorage.swift */,
+				08B1BEBF25EB668E006208AA /* TaskFunctions.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -135,7 +141,7 @@
 				08CEE43A25EB17CC00E4F5AC /* Test.entitlements */,
 				08CDECC525EA56D200616C7F /* Supporting Files */,
 				08CDECC425EA56A200616C7F /* Views */,
-				08CDECC325EA568400616C7F /* Controllers */,
+				08CDECC325EA568400616C7F /* Events */,
 				08B1BE5125EB3751006208AA /* Models */,
 				08B1BE5725EB3995006208AA /* ViewModels */,
 				08CDEC8925EA540400616C7F /* Info.plist */,
@@ -161,7 +167,7 @@
 			path = TestUITests;
 			sourceTree = "<group>";
 		};
-		08CDECC325EA568400616C7F /* Controllers */ = {
+		08CDECC325EA568400616C7F /* Events */ = {
 			isa = PBXGroup;
 			children = (
 				08CDECB425EA564F00616C7F /* RemindersViewController.swift */,
@@ -169,7 +175,7 @@
 				08CDECBE25EA567200616C7F /* EventsViewController.swift */,
 				08B1BE4C25EB2082006208AA /* AddTaskViewController.swift */,
 			);
-			path = Controllers;
+			path = Events;
 			sourceTree = "<group>";
 		};
 		08CDECC425EA56A200616C7F /* Views */ = {
@@ -324,17 +330,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08B1BE7125EB597D006208AA /* Task.xcdatamodeld in Sources */,
 				08CDECBA25EA566400616C7F /* AlarmsViewController.swift in Sources */,
 				08B1BE6B25EB478C006208AA /* EventTableViewCell.swift in Sources */,
 				08B1BE4D25EB2082006208AA /* AddTaskViewController.swift in Sources */,
+				08B1BEC025EB668E006208AA /* TaskFunctions.swift in Sources */,
 				08CDEC7C25EA540000616C7F /* AppDelegate.swift in Sources */,
 				08CDEC7E25EA540000616C7F /* SceneDelegate.swift in Sources */,
 				08B1BE6125EB3E9F006208AA /* ReminderTableViewCell.swift in Sources */,
 				08B1BE6625EB464F006208AA /* AlarmTableViewCell.swift in Sources */,
 				08CDECB525EA564F00616C7F /* RemindersViewController.swift in Sources */,
-				08B1BE5325EB38B6006208AA /* Task.swift in Sources */,
+				08B1BE5325EB38B6006208AA /* Tasks.swift in Sources */,
 				08CDECBF25EA567200616C7F /* EventsViewController.swift in Sources */,
-				08B1BE5925EB39F9006208AA /* Data.swift in Sources */,
+				08B1BEB825EB5DB9006208AA /* PersistentStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,6 +679,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		08B1BE6F25EB597D006208AA /* Task.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				08B1BE7025EB597D006208AA /* Task.xcdatamodel */,
+			);
+			currentVersion = 08B1BE7025EB597D006208AA /* Task.xcdatamodel */;
+			path = Task.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 08CDEC7025EA540000616C7F /* Project object */;
 }

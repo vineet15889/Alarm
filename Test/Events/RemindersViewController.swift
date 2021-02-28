@@ -1,5 +1,5 @@
 //
-//  EventsViewController.swift
+//  RemindersViewController.swift
 //  Test
 //
 //  Created by Vineet Rai on 27/02/21.
@@ -7,32 +7,45 @@
 
 import UIKit
 
-class EventsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class RemindersViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,TaskDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
-    var eventData:[Task] = TaskData.init().getData()
+    var reminderData:[Task] = Array<Task>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         uiSetup()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        reload()
+    }
+    
+    func reload (){
+        reminderData = TaskFunctions.init().fetchData(taskType: TaskType.reminder.rawValue)
+        tableView.reloadData()
+    }
+    
     func uiSetup(){
-        tableView.rowHeight = 100.0
+        tableView.rowHeight = 80.0
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
         tableView.allowsSelection = false;
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventData.count;
+        return reminderData.count;
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:EventTableViewCell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventTableViewCell
-        cell.label.text = eventData[indexPath.row].label
+        let cell:ReminderTableViewCell = tableView.dequeueReusableCell(withIdentifier: "reminderCell", for: indexPath) as! ReminderTableViewCell
+        cell.label.text = reminderData[indexPath.row].label
         let dateFormater = DateFormatter()
-        dateFormater.dateFormat = "MM/dd/yyyy, h:mm a"
-        cell.startDate.text = dateFormater.string(from: eventData[indexPath.row].startDate!)
-        cell.endDate.text = dateFormater.string(from: eventData[indexPath.row].endDate!)
+        dateFormater.dateFormat = "dd/MM/yyyy, h:mm a"
+        let dateTime = dateFormater.string(from: reminderData[indexPath.row].startDate!).components(separatedBy: ", ")
+        cell.date.text = dateTime[0]
+        cell.time.text = dateTime[1]
         return cell
     }
     
@@ -42,7 +55,9 @@ class EventsViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            
+            let task = reminderData[indexPath.row]
+            TaskFunctions.init().deleteData(task: task)
+            reload()
         }
     }
     
@@ -53,9 +68,11 @@ class EventsViewController: UIViewController,UITableViewDelegate,UITableViewData
     @IBAction func add(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc:AddTaskViewController = storyboard.instantiateViewController(withIdentifier: "AddTaskViewController") as! AddTaskViewController
-        vc.category = Category.reminder
+        vc.category = TaskType.reminder
         vc.action = ActionType.new
+        vc.delegate = self;
         self.present(vc, animated: true)
+        
     }
     
 }
