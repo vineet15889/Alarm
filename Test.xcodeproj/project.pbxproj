@@ -15,6 +15,7 @@
 		08B1BE7125EB597D006208AA /* Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08B1BE6F25EB597D006208AA /* Task.xcdatamodeld */; };
 		08B1BEB825EB5DB9006208AA /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1BEB725EB5DB9006208AA /* PersistentStorage.swift */; };
 		08B1BEC025EB668E006208AA /* TaskFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1BEBF25EB668E006208AA /* TaskFunctions.swift */; };
+		08B1BED725EB8CBF006208AA /* mixkit-alarm-digital-clock-beep-989.wav in Resources */ = {isa = PBXBuildFile; fileRef = 08B1BED625EB8CBF006208AA /* mixkit-alarm-digital-clock-beep-989.wav */; };
 		08CDEC7C25EA540000616C7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CDEC7B25EA540000616C7F /* AppDelegate.swift */; };
 		08CDEC7E25EA540000616C7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CDEC7D25EA540000616C7F /* SceneDelegate.swift */; };
 		08CDEC8325EA540000616C7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08CDEC8125EA540000616C7F /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		08B1BE7025EB597D006208AA /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
 		08B1BEB725EB5DB9006208AA /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
 		08B1BEBF25EB668E006208AA /* TaskFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFunctions.swift; sourceTree = "<group>"; };
+		08B1BED625EB8CBF006208AA /* mixkit-alarm-digital-clock-beep-989.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mixkit-alarm-digital-clock-beep-989.wav"; sourceTree = "<group>"; };
 		08CDEC7825EA540000616C7F /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08CDEC7B25EA540000616C7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08CDEC7D25EA540000616C7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		08CDECC525EA56D200616C7F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				08B1BED625EB8CBF006208AA /* mixkit-alarm-digital-clock-beep-989.wav */,
 				08CDEC7B25EA540000616C7F /* AppDelegate.swift */,
 				08CDEC7D25EA540000616C7F /* SceneDelegate.swift */,
 				08CDEC8425EA540400616C7F /* Assets.xcassets */,
@@ -306,6 +309,7 @@
 				08CDEC8825EA540400616C7F /* LaunchScreen.storyboard in Resources */,
 				08CDEC8525EA540400616C7F /* Assets.xcassets in Resources */,
 				08CDEC8325EA540000616C7F /* Main.storyboard in Resources */,
+				08B1BED725EB8CBF006208AA /* mixkit-alarm-digital-clock-beep-989.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

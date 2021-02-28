@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import CoreData
+
 class TaskFunctions {
     static let shared = TaskFunctions()
     func addData(label:String,startDate:Date,endDate:Date,taskStatus:Bool,taskType:String){
@@ -21,8 +23,10 @@ class TaskFunctions {
 
     func fetchData(taskType:String) ->[Task]{
         var fetchedResults: Array<Task> = Array<Task>()
+        let fetchRequest : NSFetchRequest<Task> = Task.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "taskType == %@", taskType)
         do{
-            let result = try PersistentStorage.shared.context.fetch(Task.fetchRequest()) as! [Task]
+            let result = try PersistentStorage.shared.context.fetch(fetchRequest) 
             fetchedResults = result;
         }catch let error{
             debugPrint(error)
